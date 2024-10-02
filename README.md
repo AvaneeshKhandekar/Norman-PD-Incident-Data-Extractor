@@ -57,7 +57,7 @@ The program then executes a SQL query to print all the natures of incidents and 
 - **Description**: Extracts incident data from a specified PDF file.
 - **Params**:
     - `file_path` (string): Path to the PDF file.
-- **Returns**: List of tuples containing incident data.
+- **Returns**: List of lists containing incident data per row.
 
 #### `create_database()`
 
