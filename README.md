@@ -39,7 +39,8 @@ Logic to extract the data:
     - Check if it is a header or default line and continue.
     - Split the lines based on large whitespace. If the space is more than 5 spaces then consider it as one column. This is a better approach than visitor function as it is easy to change and manager in case PDF structure changes.
     - Reference: https://github.com/py-pdf/pypdf/blob/main/docs/user/extract-text.md (Whitespace characters: How many new lines should be extracted for 3cm of vertical whitespace? How many spaces should be extracted if there is 3cm of horizontal whitespace? When would you extract tabs and when spaces?)
-    - Check record length and add it as a tuple to result array.
+    - Check record length and add it as a list to result array.
+    - If the record length is less than 5 then this is continuation of the location part on the next line. In this case update location part of the last added list in the result array.
   - Return Array of extracted of rows to be inserted in table.
 - Create database or replace existing database 'normanpd.db' in resources and create table Incidents with following schema:
   - Incidents(date_time TEXT, incident_number TEXT PRIMARY KEY, location TEXT, nature TEXT, incident_ori TEXT)
