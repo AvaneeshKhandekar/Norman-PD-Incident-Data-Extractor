@@ -32,10 +32,11 @@ def extract_incident_data(file_path):
                 continue
 
             attributes = re.split(r"[ \t\r\n]{5,}", line.strip())
+
             n = len(attributes)
             if n == 5:
                 extracted_data.append(attributes)
-            if n < 5:
+            elif n < 5:
                 if extracted_data:
                     extracted_data[-1][2] += ' '.join(attributes)
             else:
